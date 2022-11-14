@@ -72,9 +72,9 @@ public class DialogBox : Notification
         // 右ボタンのOnClickにメソッドを入れる
         transform.GetChild(1).GetChild(1).GetComponent<Button>().onClick.AddListener(rightButtonAction);
     }
-    [SerializeField] DaiaLog dialogBoxPrefab;
+    [SerializeField] Notification dialogBoxPrefab;
 
-    bool Is IsDisplayingDialog;
+    bool Is,IsDisplayingDialog;
 
     public void ShowDialog(string text, string leftButtonText, string rightButtonText, UnityEngine.Events.UnityAction leftButtonAction, UnityEngine.Events.UnityAction rightButtonAction)
     {
@@ -93,5 +93,23 @@ public class DialogBox : Notification
  
             }
     }
+
+    public void DestroyDialog()
+    {
+    // ダイアログボックスを検索
+    GameObject[] dialogs = GameObject.FindGameObjectsWithTag("Dialog");
+ 
+    // すべて削除
+    foreach(GameObject dialog in dialogs)
+    {
+        Destroy(dialog);
+    }
+ 
+    // 表示中でなくする
+    IsDisplayingDialog = false;
+ 
+    // プレイヤー操作を解放
+    DisplayMenuOperation.GetInstance().ReleasePlayer();
+}
 }
 }
