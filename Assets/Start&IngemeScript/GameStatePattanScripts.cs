@@ -15,9 +15,13 @@ public class GameStatePattanScripts : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("PushLeftMouseButton!!");
+            //Debug.Log("PushLeftMouseButton!!");
           SceneManager.LoadScene("InGame");
         }
+       if(Input.GetKey(KeyCode.Escape))
+       {
+          SceneManager.LoadScene("Menu");
+       }
     }
     
 }
