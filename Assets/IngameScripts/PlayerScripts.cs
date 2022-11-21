@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScripts : GameStatePattanScripts
 {
-    private int Speed = 1;
+    private int Speed = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +15,12 @@ public class PlayerScripts : GameStatePattanScripts
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(0,0,Speed);
+            transform.Translate(0,0,Speed*Time.deltaTime);
         }
-        */
-        if(Input.GetKey(KeyCode.LeftArrow))
+        
+        /*if(Input.GetKey(KeyCode.LeftArrow))
         {
              transform.Translate(0,0,-Speed);
         }
@@ -28,17 +28,18 @@ public class PlayerScripts : GameStatePattanScripts
         {
             transform.Translate(0,0,Speed);
         }
-        /*if(Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(0,0,);
-        }
         */
-        
+        if(Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(0,0,-Speed*Time.deltaTime);
+        }
+
     }
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "game")
         {
+            Debug.Log("HeloWord!!");
             StatePattin = 2;
         }
     }

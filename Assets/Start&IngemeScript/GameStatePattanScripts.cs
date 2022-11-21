@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class GameStatePattanScripts : MonoBehaviour
 {
-    public bool State; 
-    protected GameObject Sphere = null;
-    public int StatePattin = 0;
+    
+    public GameObject Sphere = null;
+    public static int StatePattin = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,27 +15,21 @@ public class GameStatePattanScripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (StatePattin)
-        {
-            case 0:
-                if(Input.GetMouseButtonDown(0))
-                {
-                    StatePattin = 1;
-                }
-                break;
-        }
-        if(Input.GetMouseButtonDown(0))
+        Debug.Log(StatePattin);
+        if (Input.GetMouseButtonDown(0))
         {
             //Debug.Log("PushLeftMouseButton!!");
-            Sphere.SetActive(true);
+            StatePattin = 1;
         }
-       if(Input.GetKey(KeyCode.Escape))
+        /*if(Input.GetKey(KeyCode.Escape))
        {
            State = true;
        }
+       */
 
-       if (State)
+       if (StatePattin == 2)
        {
+           Debug.Log("これは動作しました");
            Sphere.SetActive(true);
        }
        else
