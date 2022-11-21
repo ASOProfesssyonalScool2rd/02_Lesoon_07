@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerScripts : MonoBehaviour
+public class PlayerScripts : GameStatePattanScripts
 {
     private int Speed = 1;
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class PlayerScripts : MonoBehaviour
     {
         if(other.gameObject.tag == "game")
         {
-            SceneManager.LoadScene("Result");
+            StatePattin = 2;
         }
     }
 

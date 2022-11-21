@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PushButton : MonoBehaviour
+public class PushButton :  GameStatePattanScripts
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,8 @@ public class PushButton : MonoBehaviour
     }
     public void OnCleckButton()
     {
-        SceneManager.LoadScene("Title");
+        StatePattin = 0;
     }
+    
+    
 }
